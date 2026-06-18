@@ -1,760 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SnipVault — Free Code Snippets for Developers</title>
-<meta name="description" content="Free HTML, CSS, JavaScript and Python code snippets with live previews. Copy and use instantly. No signup required.">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  :root {
-    --bg: #0a0e1a;
-    --bg2: #111827;
-    --bg3: #1a2235;
-    --border: #1e2d45;
-    --text: #e8edf5;
-    --muted: #6b7c99;
-    --accent: #3b82f6;
-    --accent2: #06b6d4;
-    --green: #10b981;
-    --yellow: #f59e0b;
-    --pink: #ec4899;
-    --purple: #8b5cf6;
-    --font-head: 'Sora', sans-serif;
-    --font-code: 'JetBrains Mono', monospace;
-    --radius: 12px;
-  }
+  <!-- Primary SEO -->
+  <title>SnipVault &mdash; Free HTML, CSS, JavaScript &amp; Python Code Snippets</title>
+  <meta name="description" content="Browse 30+ free HTML, CSS, JavaScript and Python code snippets with live previews. Copy and use instantly. Perfect for beginners and developers.">
+  <meta name="keywords" content="free code snippets, HTML snippets, CSS snippets, JavaScript snippets, Python snippets, CSS animations, web development code">
+  <meta name="author" content="SnipVault">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mycodewebsite.netlify.app/">
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-head);
-    min-height: 100vh;
-    line-height: 1.6;
-  }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SnipVault &mdash; Free Code Snippets for Developers">
+  <meta property="og:description" content="30+ free HTML, CSS, JavaScript &amp; Python snippets with live previews.">
+  <meta property="og:url" content="https://mycodewebsite.netlify.app/">
+  <meta property="og:site_name" content="SnipVault">
 
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(10,14,26,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 60px;
-  }
-  .logo {
-    font-size: 1.2rem; font-weight: 700;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-decoration: none;
-  }
-  .logo span { color: var(--muted); -webkit-text-fill-color: var(--muted); font-weight: 400; }
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); }
-  .nav-badge {
-    background: var(--accent); color: white;
-    font-size: 0.75rem; padding: 6px 14px; border-radius: 99px;
-    font-weight: 600; text-decoration: none;
-  }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SnipVault &mdash; Free Code Snippets">
+  <meta name="twitter:description" content="30+ free code snippets with live previews. Copy and use instantly.">
 
-  /* HERO */
-  .hero {
-    text-align: center;
-    padding: 5rem 2rem 3rem;
-    position: relative; overflow: hidden;
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SnipVault",
+    "url": "https://mycodewebsite.netlify.app/",
+    "description": "Free HTML, CSS, JavaScript and Python code snippets with live previews"
   }
-  .hero::before {
-    content: '';
-    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--bg3); border: 1px solid var(--border);
-    padding: 6px 16px; border-radius: 99px;
-    font-size: 0.8rem; color: var(--accent2); margin-bottom: 1.5rem;
-    font-family: var(--font-code);
-  }
-  .hero-eyebrow::before { content: '●'; font-size: 8px; color: var(--green); }
-  h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700; line-height: 1.15;
-    margin-bottom: 1rem;
-    letter-spacing: -0.03em;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  .hero-sub {
-    font-size: 1.05rem; color: var(--muted);
-    max-width: 520px; margin: 0 auto 2rem;
-  }
-  .hero-stats {
-    display: flex; justify-content: center; gap: 2.5rem;
-    margin-top: 2.5rem;
-  }
-  .stat { text-align: center; }
-  .stat-n { font-size: 1.6rem; font-weight: 700; color: var(--text); }
-  .stat-l { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+  </script>
 
-  /* SEARCH */
-  .search-wrap {
-    max-width: 560px; margin: 0 auto 3rem;
-    position: relative;
-  }
-  .search-wrap input {
-    width: 100%; padding: 14px 20px 14px 48px;
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: var(--radius); color: var(--text);
-    font-size: 0.95rem; font-family: var(--font-head);
-    outline: none; transition: border-color 0.2s;
-  }
-  .search-wrap input:focus { border-color: var(--accent); }
-  .search-wrap input::placeholder { color: var(--muted); }
-  .search-icon {
-    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-    color: var(--muted); font-size: 1.1rem; pointer-events: none;
-  }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  /* FILTER TABS */
-  .filters {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    padding: 0 2rem; max-width: 1200px; margin: 0 auto 2rem;
-  }
-  .filter-btn {
-    padding: 7px 16px; border-radius: 99px;
-    border: 1px solid var(--border);
-    background: transparent; color: var(--muted);
-    font-size: 0.83rem; cursor: pointer;
-    font-family: var(--font-head); transition: all 0.15s;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
-  .filter-dot { width: 7px; height: 7px; border-radius: 50%; }
-
-  /* GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.25rem;
-    padding: 0 2rem 4rem;
-    max-width: 1200px; margin: 0 auto;
-  }
-
-  /* SNIPPET CARD */
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .card:hover { border-color: #2d4a7a; transform: translateY(-2px); }
-
-  .card-header {
-    padding: 1rem 1.25rem 0.75rem;
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
-  }
-  .card-meta { flex: 1; }
-  .card-tag {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 0.72rem; font-family: var(--font-code);
-    padding: 3px 10px; border-radius: 99px; margin-bottom: 6px;
-    font-weight: 500;
-  }
-  .tag-html { background: rgba(249,115,22,0.15); color: #fb923c; }
-  .tag-css  { background: rgba(59,130,246,0.15);  color: #60a5fa; }
-  .tag-js   { background: rgba(245,158,11,0.15);  color: #fbbf24; }
-  .tag-py   { background: rgba(16,185,129,0.15);  color: #34d399; }
-
-  .card-title {
-    font-size: 0.95rem; font-weight: 600; color: var(--text);
-    line-height: 1.3;
-  }
-  .card-desc {
-    font-size: 0.8rem; color: var(--muted); margin-top: 3px;
-  }
-
-  /* PREVIEW */
-  .preview-box {
-    margin: 0 1.25rem;
-    background: #fff;
-    border-radius: 8px;
-    height: 140px;
-    overflow: hidden;
-    position: relative;
-  }
-  .preview-box iframe {
-    width: 100%; height: 100%; border: none;
-    pointer-events: none;
-  }
-
-  /* CODE BLOCK */
-  .code-wrap {
-    margin: 0.75rem 1.25rem 0;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .code-topbar {
-    padding: 7px 12px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid var(--border);
-  }
-  .code-lang { font-size: 0.72rem; color: var(--muted); font-family: var(--font-code); }
-  .copy-btn {
-    font-size: 0.72rem; padding: 3px 10px;
-    background: var(--bg3); border: 1px solid var(--border);
-    color: var(--muted); border-radius: 5px;
-    cursor: pointer; font-family: var(--font-head);
-    transition: all 0.15s;
-  }
-  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .copy-btn.copied { border-color: var(--green); color: var(--green); }
-  pre {
-    padding: 12px;
-    font-family: var(--font-code);
-    font-size: 0.75rem;
-    line-height: 1.6;
-    color: #a8b4c8;
-    overflow-x: auto;
-    max-height: 160px;
-    overflow-y: auto;
-  }
-  pre::-webkit-scrollbar { width: 4px; height: 4px; }
-  pre::-webkit-scrollbar-track { background: transparent; }
-  pre::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-  .kw  { color: #7dd3fc; }
-  .fn  { color: #c084fc; }
-  .str { color: #86efac; }
-  .cm  { color: #4b5e7a; }
-  .num { color: #fda4af; }
-  .prop { color: #fbbf24; }
-
-  /* CARD FOOTER */
-  .card-footer {
-    padding: 0.75rem 1.25rem 1rem;
-    display: flex; align-items: center; justify-content: space-between;
-    margin-top: auto;
-  }
-  .card-views { font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
-  .toggle-preview {
-    font-size: 0.75rem; padding: 5px 12px;
-    background: transparent; border: 1px solid var(--border);
-    color: var(--muted); border-radius: 6px;
-    cursor: pointer; font-family: var(--font-head);
-    transition: all 0.15s;
-  }
-  .toggle-preview:hover { border-color: var(--accent2); color: var(--accent2); }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.83rem;
-  }
-  footer a { color: var(--accent); text-decoration: none; }
-
-  /* AD PLACEHOLDER */
-  .ad-slot {
-    max-width: 1200px; margin: 0 auto 2rem;
-    padding: 0 2rem;
-  }
-  .ad-inner {
-    background: var(--bg2); border: 1px dashed var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem; text-align: center;
-    color: var(--muted); font-size: 0.8rem;
-  }
-  .ad-inner span { display: block; font-size: 0.7rem; margin-top: 4px; opacity: 0.6; }
-
-  @media (max-width: 600px) {
-    nav { padding: 0 1rem; }
-    .nav-links { display: none; }
-    .hero { padding: 3rem 1rem 2rem; }
-    .grid { padding: 0 1rem 3rem; grid-template-columns: 1fr; }
-    .filters { padding: 0 1rem; }
-    h1 { font-size: 1.8rem; }
-  }
-</style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-  <a href="#" class="logo">Snip<span>Vault</span></a>
-  <div class="nav-links">
-    <a href="#snippetGrid" onclick="navFilter('html')">HTML/CSS</a>
-    <a href="#snippetGrid" onclick="navFilter('js')">JavaScript</a>
-    <a href="#snippetGrid" onclick="navFilter('python')">Python</a>
-    <a href="#snippetGrid" onclick="navFilter('all')">All</a>
-  </div>
-  <a href="#snippetGrid" class="nav-badge" onclick="navFilter('all')">Browse All</a>
-</nav>
+  <!-- Accessibility skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<section class="hero">
-  <div class="hero-eyebrow">Free code snippets — copy & use instantly</div>
-  <h1>The snippet library<br>developers <em>actually</em> use</h1>
-  <p class="hero-sub">Browse 30+ ready-to-use HTML, CSS, JavaScript & Python snippets. All free. All with live preview.</p>
+  <!-- ── HEADER ── -->
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="/" class="logo" aria-label="SnipVault Home">
+        Snip<span>Vault</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#snippets" onclick="navFilter('html')">HTML/CSS</a></li>
+        <li><a href="#snippets" onclick="navFilter('js')">JavaScript</a></li>
+        <li><a href="#snippets" onclick="navFilter('python')">Python</a></li>
+        <li><a href="#snippets" onclick="navFilter('all')">All</a></li>
+      </ul>
+      <a href="#snippets" class="nav-badge" onclick="navFilter('all')">
+        Browse All
+      </a>
+    </nav>
+  </header>
 
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search snippets... e.g. navbar, button, calculator" oninput="filterSnippets()">
-  </div>
+  <!-- ── MAIN CONTENT ── -->
+  <main id="main-content">
 
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Snippets</div></div>
-    <div class="stat"><div class="stat-n">4</div><div class="stat-l">Languages</div></div>
-    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Free</div></div>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <p class="hero-eyebrow">Free code snippets &mdash; copy &amp; use instantly</p>
+      <h1 id="hero-heading">
+        The snippet library<br>
+        developers <em>actually</em> use
+      </h1>
+      <p class="hero-sub">
+        Browse 30+ ready-to-use HTML, CSS, JavaScript &amp; Python snippets.
+        All free. All with live preview. No signup needed.
+      </p>
 
-<!-- AD SLOT TOP -->
-<div class="ad-slot">
-  <div class="ad-inner">
-    Advertisement
-    <span>Google AdSense will display here</span>
-  </div>
-</div>
+      <!-- Search -->
+      <div class="search-wrap" role="search">
+        <span class="search-icon" aria-hidden="true">&#128269;</span>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search snippets... e.g. navbar, button, calculator"
+          oninput="filterSnippets()"
+          aria-label="Search code snippets">
+      </div>
 
-<div class="filters" id="filters">
-  <button class="filter-btn active" onclick="filterByLang('all', this)">
-    <span class="filter-dot" style="background:#6b7c99"></span> All
-  </button>
-  <button class="filter-btn" onclick="filterByLang('html', this)">
-    <span class="filter-dot" style="background:#fb923c"></span> HTML/CSS
-  </button>
-
-  <button class="filter-btn" onclick="filterByLang('js', this)">
-    <span class="filter-dot" style="background:#fbbf24"></span> JavaScript
-  </button>
-  <button class="filter-btn" onclick="filterByLang('python', this)">
-    <span class="filter-dot" style="background:#34d399"></span> Python
-  </button>
-</div>
-
-<div class="grid" id="snippetGrid"></div>
-
-<!-- AD SLOT BOTTOM -->
-<div class="ad-slot">
-  <div class="ad-inner">
-    Advertisement
-    <span>Google AdSense will display here</span>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 SnipVault — Free code snippets for everyone &nbsp;·&nbsp; <a href="#">Submit a snippet</a> &nbsp;·&nbsp; <a href="#">About</a></p>
-  <p style="margin-top:6px;">Built with ❤️ for developers worldwide</p>
-</footer>
-
-<script>
-const snippets = [
-  {
-    id: 1, lang: 'css', title: 'Glowing Neon Button',
-    desc: 'Animated neon glow effect on hover',
-    views: '12.4k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a}.btn{padding:14px 32px;border:2px solid #3b82f6;background:transparent;color:#3b82f6;font-size:1rem;border-radius:8px;cursor:pointer;transition:all .3s;font-family:sans-serif}.btn:hover{background:#3b82f6;color:#fff;box-shadow:0 0 20px #3b82f6,0 0 40px rgba(59,130,246,.4)}</style><button class="btn">Click Me</button>`,
-    code: `<style>
-.btn {
-  padding: 14px 32px;
-  border: 2px solid #3b82f6;
-  background: transparent;
-  color: #3b82f6;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn:hover {
-  background: #3b82f6;
-  color: #fff;
-  box-shadow: 0 0 20px #3b82f6,
-    0 0 40px rgba(59,130,246,0.4);
-}
-</style>
-<button class="btn">Click Me</button>`
-  },
-  {
-    id: 2, lang: 'css', title: 'Glass Morphism Card',
-    desc: 'Frosted glass card with blur background',
-    views: '9.1k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:linear-gradient(135deg,#667eea,#764ba2)}.card{background:rgba(255,255,255,.15);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:24px;width:200px;color:#fff;font-family:sans-serif}.card h3{margin-bottom:8px;font-size:1rem}.card p{font-size:.8rem;opacity:.8}</style><div class="card"><h3>Glass Card</h3><p>Beautiful frosted glass morphism effect using CSS backdrop-filter.</p></div>`,
-    code: `.card {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 16px;
-  padding: 24px;
-  color: #fff;
-}`
-  },
-  {
-    id: 3, lang: 'css', title: 'Animated Loading Spinner',
-    desc: 'Pure CSS loading animation',
-    views: '8.7k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a}.spinner{width:48px;height:48px;border:4px solid #1e2d45;border-top:4px solid #3b82f6;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style><div class="spinner"></div>`,
-    code: `.spinner {
-  width: 48px; height: 48px;
-  border: 4px solid #e5e7eb;
-  border-top: 4px solid #3b82f6;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}`
-  },
-  {
-    id: 4, lang: 'css', title: 'Responsive Navbar',
-    desc: 'Clean sticky navigation with links',
-    views: '15.2k',
-    preview: `<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:sans-serif}nav{background:#1a2235;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:52px}.logo{color:#3b82f6;font-weight:700;font-size:1.1rem}.links{display:flex;gap:1.5rem}.links a{color:#9ca3af;text-decoration:none;font-size:.85rem}.links a:hover{color:#fff}</style><nav><div class="logo">Brand</div><div class="links"><a href="#">Home</a><a href="#">About</a><a href="#">Work</a><a href="#">Contact</a></div></nav>`,
-    code: `<style>
-nav {
-  background: #1a2235;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 52px;
-  position: sticky; top: 0;
-}
-.logo { color: #3b82f6; font-weight: 700; }
-.links { display: flex; gap: 1.5rem; }
-.links a { color: #9ca3af; text-decoration: none; }
-.links a:hover { color: #fff; }
-</style>`
-  },
-  {
-    id: 5, lang: 'css', title: 'Profile Card',
-    desc: 'User profile card with avatar and stats',
-    views: '7.3k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#111827;font-family:sans-serif}.card{background:#1e293b;border-radius:16px;padding:24px;text-align:center;width:200px;color:#fff}.avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}.name{font-weight:600;font-size:.95rem}.role{font-size:.75rem;color:#64748b;margin-top:4px}.stats{display:flex;justify-content:space-around;margin-top:16px;padding-top:16px;border-top:1px solid #334155}.s-n{font-weight:700;font-size:.9rem}.s-l{font-size:.65rem;color:#64748b}</style><div class="card"><div class="avatar">👤</div><div class="name">Ali Hassan</div><div class="role">Developer</div><div class="stats"><div><div class="s-n">128</div><div class="s-l">Posts</div></div><div><div class="s-n">4.2k</div><div class="s-l">Followers</div></div></div></div>`,
-    code: `.card {
-  background: #1e293b;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  color: #fff;
-}
-.avatar {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  margin: 0 auto 12px;
-}`
-  },
-  {
-    id: 6, lang: 'css', title: 'Gradient Text Effect',
-    desc: 'Animated rainbow gradient on text',
-    views: '6.8k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a}.grad{font-size:2rem;font-weight:800;font-family:sans-serif;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:flow 3s linear infinite}@keyframes flow{to{background-position:200% center}}</style><div class="grad">SnipVault</div>`,
-    code: `.gradient-text {
-  background: linear-gradient(90deg,
-    #3b82f6, #8b5cf6,
-    #ec4899, #f59e0b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% auto;
-  animation: flow 3s linear infinite;
-}
-@keyframes flow {
-  to { background-position: 200% center; }
-}`
-  },
-  {
-    id: 7, lang: 'js', title: 'Age Calculator',
-    desc: 'Calculate exact age from date of birth',
-    views: '11.2k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#111827;font-family:sans-serif}div{text-align:center;color:#fff}input{padding:8px 12px;border-radius:8px;border:1px solid #374151;background:#1e293b;color:#fff;margin:8px 0;display:block;width:100%}button{padding:8px 20px;background:#3b82f6;color:#fff;border:none;border-radius:8px;cursor:pointer;margin-top:6px}#res{margin-top:12px;font-size:1.1rem;color:#34d399}</style><div><p style="margin-bottom:8px;font-size:.85rem;color:#9ca3af">Enter your birthdate</p><input type="date" id="dob"><button onclick="let d=new Date(document.getElementById('dob').value),n=new Date(),a=n.getFullYear()-d.getFullYear();document.getElementById('res').textContent=document.getElementById('dob').value?'You are '+a+' years old':'Pick a date!'">Calculate</button><div id="res"></div></div>`,
-    code: `function calcAge(dob) {
-  const birth = new Date(dob);
-  const today = new Date();
-  let age = today.getFullYear()
-            - birth.getFullYear();
-  const m = today.getMonth()
-            - birth.getMonth();
-  if (m < 0 || (m === 0 &&
-      today.getDate() < birth.getDate())) {
-    age--;
-  }
-  return age;
-}
-// Usage:
-console.log(calcAge('2000-05-15')); // 25`
-  },
-  {
-    id: 8, lang: 'js', title: 'Password Generator',
-    desc: 'Generate strong random passwords',
-    views: '14.6k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#111827;font-family:sans-serif}.box{text-align:center;color:#fff;width:220px}#pw{background:#0a0e1a;border:1px solid #374151;color:#34d399;padding:10px;border-radius:8px;font-family:monospace;font-size:.85rem;width:100%;margin-bottom:8px;text-align:center}button{padding:8px 16px;background:#3b82f6;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;margin:3px}</style><div class="box"><div id="pw">Click Generate</div><button onclick="let c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$',p='';for(let i=0;i<12;i++)p+=c[Math.floor(Math.random()*c.length)];document.getElementById('pw').textContent=p">Generate</button><button onclick="navigator.clipboard.writeText(document.getElementById('pw').textContent)">Copy</button></div>`,
-    code: `function generatePassword(length = 12) {
-  const chars =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefg' +
-    'hijklmnopqrstuvwxyz0123456789!@#$';
-  let password = '';
-  for (let i = 0; i < length; i++) {
-    password += chars[
-      Math.floor(Math.random() * chars.length)
-    ];
-  }
-  return password;
-}
-console.log(generatePassword()); // e.g. "K9#mPqR2!xLw"`
-  },
-  {
-    id: 9, lang: 'js', title: 'Countdown Timer',
-    desc: 'Real-time countdown to any date',
-    views: '10.9k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:sans-serif}.timer{display:flex;gap:12px}.box{background:#1a2235;border:1px solid #1e2d45;border-radius:10px;padding:12px;text-align:center;min-width:50px}.num{font-size:1.4rem;font-weight:700;color:#3b82f6}.lbl{font-size:.6rem;color:#6b7c99;margin-top:2px}</style><div class="timer"><div class="box"><div class="num" id="d">00</div><div class="lbl">DAYS</div></div><div class="box"><div class="num" id="h">00</div><div class="lbl">HRS</div></div><div class="box"><div class="num" id="m">00</div><div class="lbl">MIN</div></div><div class="box"><div class="num" id="s">00</div><div class="lbl">SEC</div></div></div><script>function tick(){let t=new Date('2026-01-01')-new Date(),d=Math.floor(t/864e5),h=Math.floor((t%864e5)/36e5),m=Math.floor((t%36e5)/6e4),s=Math.floor((t%6e4)/1e3);document.getElementById('d').textContent=String(d).padStart(2,'0');document.getElementById('h').textContent=String(h).padStart(2,'0');document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0')}tick();setInterval(tick,1000)<\/script>`,
-    code: `function startCountdown(targetDate) {
-  setInterval(() => {
-    const diff = new Date(targetDate) - new Date();
-    const days = Math.floor(diff / 86400000);
-    const hrs  = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-    console.log(\`\${days}d \${hrs}h \${mins}m \${secs}s\`);
-  }, 1000);
-}
-startCountdown('2026-01-01');`
-  },
-  {
-    id: 10, lang: 'js', title: 'Dark Mode Toggle',
-    desc: 'Switch between light and dark themes',
-    views: '13.5k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;transition:background .3s,color .3s;font-family:sans-serif}.toggle{width:52px;height:28px;background:#374151;border-radius:99px;cursor:pointer;position:relative;transition:background .3s}.toggle.on{background:#3b82f6}.knob{width:22px;height:22px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:transform .3s}.toggle.on .knob{transform:translateX(24px)}.label{margin-left:12px;font-size:.9rem}</style><div style="display:flex;align-items:center"><div class="toggle" id="t" onclick="this.classList.toggle('on');document.querySelector('.knob').parentElement.classList.contains('on')?document.querySelector('.label').textContent='Dark Mode':document.querySelector('.label').textContent='Light Mode'"><div class="knob"></div></div><span class="label" style="color:#fff">Light Mode</span></div>`,
-    code: `const toggle = document.getElementById('toggle');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-});
-
-// CSS:
-// body.dark {
-//   background: #0a0e1a;
-//   color: #e8edf5;
-// }`
-  },
-  {
-    id: 11, lang: 'js', title: 'Copy to Clipboard',
-    desc: 'One-click copy with success feedback',
-    views: '9.8k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#111827;font-family:sans-serif}.box{text-align:center}input{background:#1e293b;border:1px solid #374151;color:#fff;padding:10px;border-radius:8px;width:200px;font-size:.85rem}button{padding:10px 20px;background:#3b82f6;color:#fff;border:none;border-radius:8px;cursor:pointer;margin-top:8px;display:block;width:100%;font-size:.85rem}button.ok{background:#10b981}</style><div class="box"><input id="txt" value="Hello World!"><button id="btn" onclick="navigator.clipboard.writeText(document.getElementById('txt').value);this.textContent='✓ Copied!';this.classList.add('ok');setTimeout(()=>{this.textContent='Copy';this.classList.remove('ok')},2000)">Copy</button></div>`,
-    code: `async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    btn.textContent = '✓ Copied!';
-    setTimeout(() => {
-      btn.textContent = 'Copy';
-    }, 2000);
-  } catch (err) {
-    console.error('Copy failed:', err);
-  }
-}`
-  },
-  {
-    id: 12, lang: 'python', title: 'Password Generator',
-    desc: 'Generate secure passwords with Python',
-    views: '8.4k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#34d399;font-size:.85rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># Python Password Generator</span><br><span class="kw">import</span> random, string<br><br><span class="kw">def</span> <span class="fn">generate</span>(length=<span class="str">12</span>):<br>&nbsp;&nbsp;chars = string.ascii_letters<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ string.digits<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="str">"!@#$"</span><br>&nbsp;&nbsp;<span class="kw">return</span> <span class="str">''</span>.join(<br>&nbsp;&nbsp;&nbsp;&nbsp;random.choices(chars, k=length))<br><br>print(generate()) <span class="cm"># K9#mPqR2!xLw</span></div>`,
-    code: `import random
-import string
-
-def generate_password(length=12):
-    chars = (string.ascii_letters
-             + string.digits
-             + "!@#$%^&*")
-    return ''.join(
-        random.choices(chars, k=length)
-    )
-
-# Generate passwords
-for i in range(5):
-    print(generate_password(16))`
-  },
-  {
-    id: 13, lang: 'python', title: 'File Renamer Script',
-    desc: 'Bulk rename files in a folder',
-    views: '6.1k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># Bulk File Renamer</span><br><span class="kw">import</span> os<br><br><span class="kw">def</span> <span class="fn">rename_files</span>(folder, prefix):<br>&nbsp;&nbsp;<span class="kw">for</span> i, f <span class="kw">in</span> enumerate(<br>&nbsp;&nbsp;&nbsp;&nbsp;os.listdir(folder)):<br>&nbsp;&nbsp;&nbsp;&nbsp;ext = f.split(<span class="str">'.'</span>)[-1]<br>&nbsp;&nbsp;&nbsp;&nbsp;new = <span class="str">f"{prefix}_{i}.{ext}"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;os.rename(f, new)<br>&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="str">f"✓ {f} → {new}"</span>)</div>`,
-    code: `import os
-
-def rename_files(folder, prefix="file"):
-    files = os.listdir(folder)
-    for i, filename in enumerate(files):
-        ext = filename.split('.')[-1]
-        new_name = f"{prefix}_{i+1}.{ext}"
-        old_path = os.path.join(folder, filename)
-        new_path = os.path.join(folder, new_name)
-        os.rename(old_path, new_path)
-        print(f"✓ {filename} → {new_name}")
-
-rename_files('./my_folder', 'photo')`
-  },
-  {
-    id: 14, lang: 'python', title: 'QR Code Generator',
-    desc: 'Generate QR codes for any URL or text',
-    views: '7.9k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># QR Code Generator</span><br><span class="cm"># pip install qrcode pillow</span><br><br><span class="kw">import</span> qrcode<br><br>qr = qrcode.QRCode(version=<span class="str">1</span>)<br>qr.add_data(<span class="str">"https://snipvault.com"</span>)<br>qr.make(fit=<span class="kw">True</span>)<br><br>img = qr.make_image()<br>img.save(<span class="str">"qr_code.png"</span>)<br>print(<span class="str">"✓ QR saved!"</span>)</div>`,
-    code: `# pip install qrcode pillow
-import qrcode
-
-def create_qr(url, filename="qr.png"):
-    qr = qrcode.QRCode(
-        version=1,
-        box_size=10,
-        border=4
-    )
-    qr.add_data(url)
-    qr.make(fit=True)
-    img = qr.make_image(
-        fill_color="black",
-        back_color="white"
-    )
-    img.save(filename)
-    print(f"✓ QR code saved to {filename}")
-
-create_qr("https://yourwebsite.com")`
-  },
-  {
-    id: 15, lang: 'css', title: 'Login Form',
-    desc: 'Clean dark-themed login form',
-    views: '18.3k',
-    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:sans-serif}.form{background:#111827;border:1px solid #1e2d45;border-radius:16px;padding:24px;width:220px}.form h3{color:#fff;font-size:1rem;margin-bottom:16px}.form input{width:100%;padding:9px 12px;background:#1a2235;border:1px solid #1e2d45;border-radius:8px;color:#fff;font-size:.82rem;margin-bottom:10px;box-sizing:border-box}.form button{width:100%;padding:10px;background:#3b82f6;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.85rem}</style><div class="form"><h3>Welcome back</h3><input placeholder="Email address"><input type="password" placeholder="Password"><button>Sign in</button></div>`,
-    code: `<style>
-.login-form {
-  background: #111827;
-  border: 1px solid #1e2d45;
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 380px;
-  margin: auto;
-}
-.login-form input {
-  width: 100%;
-  padding: 12px;
-  background: #1a2235;
-  border: 1px solid #1e2d45;
-  border-radius: 8px;
-  color: #fff;
-  margin-bottom: 12px;
-}
-.login-form button {
-  width: 100%;
-  padding: 12px;
-  background: #3b82f6;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-</style>`
-  }
-];
-
-let currentLang = 'all';
-let searchQuery = '';
-
-function renderSnippets() {
-  const grid = document.getElementById('snippetGrid');
-  const filtered = snippets.filter(s => {
-    const matchLang = currentLang === 'all'
-      || s.lang === currentLang
-      || (currentLang === 'html' && s.lang === 'css')
-      || (currentLang === 'css' && s.lang === 'html');
-    const q = searchQuery.toLowerCase();
-    const matchSearch = !q || s.title.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q);
-    return matchLang && matchSearch;
-  });
-
-  grid.innerHTML = filtered.map(s => `
-    <div class="card" data-lang="${s.lang}">
-      <div class="card-header">
-        <div class="card-meta">
-          <span class="card-tag ${s.lang === 'css' ? 'tag-css' : s.lang === 'js' ? 'tag-js' : s.lang === 'python' ? 'tag-py' : 'tag-html'}">
-            ${s.lang === 'css' ? '◆ CSS' : s.lang === 'js' ? '⚡ JS' : s.lang === 'python' ? '🐍 Python' : '◇ HTML'}
-          </span>
-          <div class="card-title">${s.title}</div>
-          <div class="card-desc">${s.desc}</div>
+      <!-- Stats -->
+      <div class="hero-stats" aria-label="Site statistics">
+        <div class="stat">
+          <p class="stat-n">30+</p>
+          <p class="stat-l">Snippets</p>
+        </div>
+        <div class="stat">
+          <p class="stat-n">4</p>
+          <p class="stat-l">Languages</p>
+        </div>
+        <div class="stat">
+          <p class="stat-n">100%</p>
+          <p class="stat-l">Free</p>
         </div>
       </div>
+    </section>
 
-      ${s.preview ? `
-      <div class="preview-box" id="prev-${s.id}">
-        <iframe srcdoc="${s.preview.replace(/"/g, '&quot;')}" sandbox="allow-scripts"></iframe>
-      </div>` : ''}
-
-      <div class="code-wrap">
-        <div class="code-topbar">
-          <span class="code-lang">${s.lang === 'python' ? 'python' : 'html/css/js'}</span>
-          <button class="copy-btn" onclick="copyCode(this, ${s.id})">Copy</button>
-        </div>
-        <pre id="code-${s.id}">${escHtml(s.code)}</pre>
+    <!-- Ad Slot Top -->
+    <aside class="ad-slot" aria-label="Advertisement">
+      <div class="ad-inner">
+        Advertisement
+        <span>Google AdSense will display here</span>
       </div>
+    </aside>
 
-      <div class="card-footer">
-        <span class="card-views">👁 ${s.views} views</span>
-        ${s.preview ? `<button class="toggle-preview" onclick="togglePreview(${s.id})">Hide preview</button>` : ''}
+    <!-- Filter Buttons -->
+    <section class="filters-wrap" aria-label="Filter snippets by language">
+      <p class="filters-label">Filter by language:</p>
+      <div class="filters" role="group" aria-label="Language filters">
+        <button class="filter-btn active"
+          onclick="filterByLang('all', this)"
+          aria-pressed="true">
+          <span class="filter-dot" style="background:#6b7c99" aria-hidden="true"></span>
+          All Snippets
+        </button>
+        <button class="filter-btn"
+          onclick="filterByLang('html', this)"
+          aria-pressed="false">
+          <span class="filter-dot" style="background:#fb923c" aria-hidden="true"></span>
+          HTML / CSS
+        </button>
+        <button class="filter-btn"
+          onclick="filterByLang('js', this)"
+          aria-pressed="false">
+          <span class="filter-dot" style="background:#fbbf24" aria-hidden="true"></span>
+          JavaScript
+        </button>
+        <button class="filter-btn"
+          onclick="filterByLang('python', this)"
+          aria-pressed="false">
+          <span class="filter-dot" style="background:#34d399" aria-hidden="true"></span>
+          Python
+        </button>
       </div>
-    </div>
-  `).join('');
-}
+    </section>
 
-function escHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+    <!-- Snippets Grid -->
+    <section id="snippets" aria-label="Code snippets">
+      <div class="snippet-grid" id="snippetGrid" role="list"></div>
+    </section>
 
-function copyCode(btn, id) {
-  const code = snippets.find(s => s.id === id).code;
-  navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = '✓ Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
+    <!-- Ad Slot Bottom -->
+    <aside class="ad-slot" aria-label="Advertisement">
+      <div class="ad-inner">
+        Advertisement
+        <span>Google AdSense will display here</span>
+      </div>
+    </aside>
 
-function togglePreview(id) {
-  const prev = document.getElementById('prev-' + id);
-  if (!prev) return;
-  const isHidden = prev.style.display === 'none';
-  prev.style.display = isHidden ? 'block' : 'none';
-  const btn = prev.closest('.card').querySelector('.toggle-preview');
-  btn.textContent = isHidden ? 'Hide preview' : 'Show preview';
-}
+  </main>
 
-function filterByLang(lang, btn) {
-  currentLang = lang;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderSnippets();
-}
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>
+      &copy; 2025 <strong>SnipVault</strong> &mdash;
+      Free code snippets for developers &nbsp;&middot;&nbsp;
+      <a href="#">About</a> &nbsp;&middot;&nbsp;
+      <a href="#">Contact</a>
+    </p>
+    <p style="margin-top: 6px;">
+      Built with &#10084;&#65039; for developers worldwide
+      &middot; HTML CSS JavaScript Python snippets
+    </p>
+  </footer>
 
-function filterSnippets() {
-  searchQuery = document.getElementById('searchInput').value;
-  renderSnippets();
-}
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 
-function navFilter(lang) {
-  currentLang = lang;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  const map = { all: 0, html: 1, js: 2, python: 3 };
-  const btns = document.querySelectorAll('.filter-btn');
-  if (btns[map[lang]]) btns[map[lang]].classList.add('active');
-  renderSnippets();
-}
-
-
-renderSnippets();
-</script>
 </body>
 </html>
