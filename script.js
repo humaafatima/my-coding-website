@@ -247,8 +247,129 @@ const snippets = [
     views: '4.8k',
     preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># Number Guessing Game</span><br><span class="kw">import</span> random<br><br>secret = random.randint(<span class="str">1</span>, <span class="str">100</span>)<br><span class="kw">while True</span>:<br>&nbsp;&nbsp;guess = int(input(<span class="str">"Guess (1-100): "</span>))<br>&nbsp;&nbsp;<span class="kw">if</span> guess == secret:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="str">"🎉 Correct!"</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span></div>`,
     code: `import random\n\ndef number_guessing_game(min_n=1, max_n=100):\n    """Play an interactive number guessing game."""\n    secret = random.randint(min_n, max_n)\n    attempts = 0\n    print(f"Guess a number between {min_n} and {max_n}")\n    while True:\n        try:\n            guess = int(input("Your guess: "))\n            attempts += 1\n            if guess < secret:\n                print("Too low! Try higher.")\n            elif guess > secret:\n                print("Too high! Try lower.")\n            else:\n                print(f"Correct! Won in {attempts} attempts!")\n                break\n        except ValueError:\n            print("Please enter a valid number.")\n\nnumber_guessing_game()`
+  },
+  {
+    id: 31, lang: 'css',
+    title: 'Responsive Image Gallery Grid',
+    desc: 'CSS Grid masonry-style image gallery layout that adapts to screen size',
+    views: '6.9k',
+    preview: `<style>body{margin:0;background:#0a0e1a;padding:8px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.grid div{height:50px;border-radius:6px;background:linear-gradient(135deg,#3b82f6,#8b5cf6)}.grid div:nth-child(2){background:linear-gradient(135deg,#ec4899,#f59e0b)}.grid div:nth-child(3){background:linear-gradient(135deg,#10b981,#06b6d4)}.grid div:nth-child(5){background:linear-gradient(135deg,#f59e0b,#ef4444)}</style><div class="grid"><div></div><div></div><div></div><div></div><div></div><div></div></div>`,
+    code: `.gallery {\n  display: grid;\n  grid-template-columns:\n    repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.gallery img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border-radius: 8px;\n}`
+  },
+  {
+    id: 32, lang: 'css',
+    title: 'CSS Accordion (FAQ)',
+    desc: 'Expandable accordion FAQ section using pure CSS details element',
+    views: '8.1k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:sans-serif;padding:12px}details{background:#111827;border:1px solid #1e2d45;border-radius:8px;padding:10px 14px;width:240px;color:#fff;margin-bottom:6px}summary{cursor:pointer;font-size:.85rem;font-weight:600}details p{font-size:.78rem;color:#9ca3af;margin-top:8px}</style><div><details open><summary>What is SnipVault?</summary><p>A free library of code snippets for developers.</p></details><details><summary>Is it free?</summary><p>Yes, 100% free, no signup required.</p></details></div>`,
+    code: `<details class="accordion-item">\n  <summary>What is SnipVault?</summary>\n  <p>A free library of code snippets\n     for developers.</p>\n</details>\n\n<style>\n.accordion-item {\n  background: #111827;\n  border: 1px solid #1e2d45;\n  border-radius: 8px;\n  padding: 12px 16px;\n  margin-bottom: 8px;\n}\n.accordion-item summary {\n  cursor: pointer;\n  font-weight: 600;\n}\n</style>`
+  },
+  {
+    id: 33, lang: 'css',
+    title: 'Animated Underline Link',
+    desc: 'Text link with smooth animated underline that grows on hover',
+    views: '5.2k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:sans-serif}.link{color:#fff;text-decoration:none;font-size:1.1rem;position:relative;padding-bottom:4px}.link::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#3b82f6;transition:width .3s}.link:hover::after{width:100%}</style><a href="#" class="link">Hover this link</a>`,
+    code: `.animated-link {\n  position: relative;\n  text-decoration: none;\n  padding-bottom: 4px;\n}\n.animated-link::after {\n  content: '';\n  position: absolute;\n  left: 0; bottom: 0;\n  width: 0; height: 2px;\n  background: #3b82f6;\n  transition: width 0.3s;\n}\n.animated-link:hover::after {\n  width: 100%;\n}`
+  },
+  {
+    id: 34, lang: 'css',
+    title: 'CSS Badge / Tag Chips',
+    desc: 'Colorful rounded tag chips for categories or labels',
+    views: '4.7k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:sans-serif;gap:6px}.chip{padding:5px 14px;border-radius:99px;font-size:.75rem;font-weight:600}.c1{background:rgba(59,130,246,.15);color:#60a5fa}.c2{background:rgba(16,185,129,.15);color:#34d399}.c3{background:rgba(245,158,11,.15);color:#fbbf24}</style><span class="chip c1">Design</span><span class="chip c2">Free</span><span class="chip c3">New</span>`,
+    code: `.chip {\n  display: inline-block;\n  padding: 5px 14px;\n  border-radius: 99px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  background: rgba(59,130,246,0.15);\n  color: #60a5fa;\n}`
+  },
+  {
+    id: 35, lang: 'css',
+    title: 'CSS Image Hover Zoom',
+    desc: 'Smooth image zoom effect on hover with overflow clip',
+    views: '7.4k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a}.box{width:160px;height:100px;border-radius:10px;overflow:hidden}.box div{width:100%;height:100%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);transition:transform .4s}.box:hover div{transform:scale(1.15)}</style><div class="box"><div></div></div>`,
+    code: `.zoom-wrap {\n  overflow: hidden;\n  border-radius: 10px;\n}\n.zoom-wrap img {\n  width: 100%;\n  transition: transform 0.4s;\n}\n.zoom-wrap:hover img {\n  transform: scale(1.15);\n}`
+  },
+  {
+    id: 36, lang: 'js',
+    title: 'Currency Converter',
+    desc: 'Convert between currencies using a simple JavaScript exchange rate object',
+    views: '8.6k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#111827;font-family:sans-serif}.w{color:#fff;text-align:center;width:220px}input,select{width:100%;padding:8px;background:#1e293b;border:1px solid #374151;border-radius:8px;color:#fff;margin-bottom:8px;font-size:.82rem;box-sizing:border-box}button{width:100%;padding:9px;background:#3b82f6;color:#fff;border:none;border-radius:8px;cursor:pointer}#res{margin-top:10px;color:#34d399;font-weight:600}</style><div class="w"><input type="number" id="amt" placeholder="Amount in USD" value="100"><button onclick="let r={USD:1,EUR:.92,GBP:.79,PKR:278};document.getElementById('res').textContent='= '+(document.getElementById('amt').value*r.PKR).toFixed(2)+' PKR'">Convert to PKR</button><p id="res" aria-live="polite"></p></div>`,
+    code: `const rates = { USD: 1, EUR: 0.92, GBP: 0.79, PKR: 278 };\n\nfunction convertCurrency(amount, from, to) {\n  const usdAmount = amount / rates[from];\n  const converted = usdAmount * rates[to];\n  return converted.toFixed(2);\n}\n\nconsole.log(convertCurrency(100, 'USD', 'PKR'));\n// "27800.00"`
+  },
+  {
+    id: 37, lang: 'js',
+    title: 'Color Picker Tool',
+    desc: 'Pick a color and instantly see its hex code with copy button',
+    views: '6.1k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#111827;font-family:sans-serif}.w{text-align:center;color:#fff}input[type=color]{width:60px;height:60px;border:none;border-radius:10px;cursor:pointer;background:none}#hex{margin-top:10px;font-family:monospace;background:#1e293b;padding:6px 14px;border-radius:6px;display:inline-block;font-size:.85rem}</style><div class="w"><input type="color" value="#3b82f6" oninput="document.getElementById('hex').textContent=this.value" aria-label="Pick a color"><p id="hex">#3b82f6</p></div>`,
+    code: `const colorInput = document.getElementById('color');\nconst hexDisplay = document.getElementById('hex');\n\ncolorInput.addEventListener('input', (e) => {\n  hexDisplay.textContent = e.target.value;\n});\n\nfunction copyHex() {\n  navigator.clipboard.writeText(hexDisplay.textContent);\n}`
+  },
+  {
+    id: 38, lang: 'js',
+    title: 'Image Slider / Carousel',
+    desc: 'Simple JavaScript image carousel with next and previous buttons',
+    views: '13.2k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:sans-serif}.slider{width:200px;text-align:center}.slide{height:90px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.3rem;margin-bottom:8px}.nav{display:flex;justify-content:space-between}.nav button{background:#1a2235;color:#fff;border:1px solid #1e2d45;border-radius:6px;padding:6px 14px;cursor:pointer}</style><div class="slider"><div class="slide" id="sl" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)">1</div><div class="nav"><button onclick="let s=document.getElementById('sl'),n=(+s.textContent-2+3)%3+1,c=['linear-gradient(135deg,#3b82f6,#8b5cf6)','linear-gradient(135deg,#ec4899,#f59e0b)','linear-gradient(135deg,#10b981,#06b6d4)'];s.textContent=n;s.style.background=c[n-1]">&#8592; Prev</button><button onclick="let s=document.getElementById('sl'),n=(+s.textContent%3)+1,c=['linear-gradient(135deg,#3b82f6,#8b5cf6)','linear-gradient(135deg,#ec4899,#f59e0b)','linear-gradient(135deg,#10b981,#06b6d4)'];s.textContent=n;s.style.background=c[n-1]">Next &#8594;</button></div></div>`,
+    code: `let currentSlide = 0;\nconst slides = document.querySelectorAll('.slide');\n\nfunction showSlide(index) {\n  slides.forEach(s => s.style.display = 'none');\n  slides[index].style.display = 'block';\n}\n\nfunction nextSlide() {\n  currentSlide = (currentSlide + 1) % slides.length;\n  showSlide(currentSlide);\n}\n\nfunction prevSlide() {\n  currentSlide = (currentSlide - 1 + slides.length) % slides.length;\n  showSlide(currentSlide);\n}`
+  },
+  {
+    id: 39, lang: 'js',
+    title: 'Typing Animation Effect',
+    desc: 'Animated typewriter text effect using JavaScript setInterval',
+    views: '9.4k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}#type{color:#34d399;font-size:1.1rem}#type::after{content:'|';animation:blink 1s infinite}@keyframes blink{50%{opacity:0}}</style><span id="type"></span><script>let txt="Welcome to SnipVault!",i=0;function t(){if(i<txt.length){document.getElementById('type').textContent+=txt[i++];setTimeout(t,100)}}t()<\/script>`,
+    code: `function typeWriter(text, elementId, speed = 100) {\n  let i = 0;\n  const el = document.getElementById(elementId);\n  el.textContent = '';\n\n  function type() {\n    if (i < text.length) {\n      el.textContent += text.charAt(i);\n      i++;\n      setTimeout(type, speed);\n    }\n  }\n  type();\n}\n\ntypeWriter('Welcome to SnipVault!', 'typewriter');`
+  },
+  {
+    id: 40, lang: 'js',
+    title: 'Star Rating with JavaScript',
+    desc: 'Interactive clickable star rating system with JavaScript event handling',
+    views: '7.8k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a}.stars span{font-size:1.8rem;color:#374151;cursor:pointer;transition:color .15s}.stars span.active{color:#f59e0b}</style><div class="stars" id="rate" onclick="if(event.target.tagName==='SPAN'){let v=+event.target.dataset.v;document.querySelectorAll('#rate span').forEach(s=>s.classList.toggle('active',+s.dataset.v<=v))}"><span data-v="1">&#9733;</span><span data-v="2">&#9733;</span><span data-v="3">&#9733;</span><span data-v="4">&#9733;</span><span data-v="5">&#9733;</span></div>`,
+    code: `const stars = document.querySelectorAll('.star');\n\nstars.forEach((star, index) => {\n  star.addEventListener('click', () => {\n    stars.forEach((s, i) => {\n      s.classList.toggle('active', i <= index);\n    });\n    console.log('Rating:', index + 1);\n  });\n});`
+  },
+  {
+    id: 41, lang: 'python',
+    title: 'PDF Merger Script',
+    desc: 'Merge multiple PDF files into a single PDF using Python pypdf',
+    views: '6.5k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># pip install pypdf</span><br><span class="kw">from</span> pypdf <span class="kw">import</span> PdfWriter<br><br>merger = PdfWriter()<br><span class="kw">for</span> pdf <span class="kw">in</span> [<span class="str">"a.pdf"</span>,<span class="str">"b.pdf"</span>]:<br>&nbsp;&nbsp;merger.append(pdf)<br>merger.write(<span class="str">"merged.pdf"</span>)<br>print(<span class="str">"Merged!"</span>)</div>`,
+    code: `# pip install pypdf\nfrom pypdf import PdfWriter\n\ndef merge_pdfs(pdf_list, output_path):\n    """Merge multiple PDF files into one."""\n    merger = PdfWriter()\n    for pdf in pdf_list:\n        merger.append(pdf)\n    merger.write(output_path)\n    merger.close()\n    print(f"Merged {len(pdf_list)} PDFs into {output_path}")\n\nmerge_pdfs(\n    ["report1.pdf", "report2.pdf"],\n    "merged_report.pdf"\n)`
+  },
+  {
+    id: 42, lang: 'python',
+    title: 'Simple To-Do List CLI',
+    desc: 'Command-line to-do list app with add, view, and delete using Python',
+    views: '5.7k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># Simple To-Do CLI</span><br>tasks = []<br><br><span class="kw">def</span> <span class="fn">add_task</span>(t):<br>&nbsp;&nbsp;tasks.append(t)<br>&nbsp;&nbsp;print(<span class="str">f"Added: {t}"</span>)<br><br><span class="kw">def</span> <span class="fn">show_tasks</span>():<br>&nbsp;&nbsp;<span class="kw">for</span> i, t <span class="kw">in</span> enumerate(tasks,1):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="str">f"{i}. {t}"</span>)</div>`,
+    code: `tasks = []\n\ndef add_task(task):\n    tasks.append(task)\n    print(f"Added: {task}")\n\ndef show_tasks():\n    if not tasks:\n        print("No tasks yet!")\n        return\n    for i, task in enumerate(tasks, 1):\n        print(f"{i}. {task}")\n\ndef delete_task(index):\n    removed = tasks.pop(index - 1)\n    print(f"Removed: {removed}")\n\nadd_task("Learn Python")\nadd_task("Build a project")\nshow_tasks()`
+  },
+  {
+    id: 43, lang: 'python',
+    title: 'Currency Converter Script',
+    desc: 'Convert between currencies using a live exchange rate API in Python',
+    views: '7.2k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># pip install requests</span><br><span class="kw">import</span> requests<br><br><span class="kw">def</span> <span class="fn">convert</span>(amt, frm, to):<br>&nbsp;&nbsp;url = <span class="str">f"https://api.exchangerate-api.com/v4/latest/{frm}"</span><br>&nbsp;&nbsp;data = requests.get(url).json()<br>&nbsp;&nbsp;rate = data[<span class="str">'rates'</span>][to]<br>&nbsp;&nbsp;<span class="kw">return</span> round(amt * rate, <span class="str">2</span>)</div>`,
+    code: `# pip install requests\nimport requests\n\ndef convert_currency(amount, from_curr, to_curr):\n    """Convert currency using live exchange rates."""\n    url = f"https://api.exchangerate-api.com/v4/latest/{from_curr}"\n    response = requests.get(url)\n    data = response.json()\n    rate = data['rates'][to_curr]\n    return round(amount * rate, 2)\n\nresult = convert_currency(100, 'USD', 'PKR')\nprint(f"100 USD = {result} PKR")`
+  },
+  {
+    id: 44, lang: 'python',
+    title: 'Word Frequency Counter',
+    desc: 'Count and rank the most frequent words in any text file using Python',
+    views: '5.9k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># Word Frequency Counter</span><br><span class="kw">from</span> collections <span class="kw">import</span> Counter<br><br>text = open(<span class="str">"file.txt"</span>).read()<br>words = text.lower().split()<br>freq = Counter(words)<br><span class="kw">for</span> w, c <span class="kw">in</span> freq.most_common(<span class="str">5</span>):<br>&nbsp;&nbsp;print(w, c)</div>`,
+    code: `from collections import Counter\nimport re\n\ndef word_frequency(filepath, top_n=10):\n    """Find the most common words in a text file."""\n    with open(filepath, 'r', encoding='utf-8') as f:\n        text = f.read().lower()\n    words = re.findall(r'\\b[a-z]+\\b', text)\n    counter = Counter(words)\n    return counter.most_common(top_n)\n\nfor word, count in word_frequency('article.txt'):\n    print(f"{word}: {count}")`
+  },
+  {
+    id: 45, lang: 'python',
+    title: 'Simple Weather Checker',
+    desc: 'Fetch current weather data for any city using Python requests',
+    views: '8.9k',
+    preview: `<style>body{display:flex;align-items:center;justify-content:center;height:100%;margin:0;background:#0a0e1a;font-family:monospace}.output{background:#111827;border:1px solid #1e2d45;border-radius:12px;padding:20px;color:#a8b4c8;font-size:.82rem;line-height:1.8}.cm{color:#4b5e7a}.kw{color:#7dd3fc}.fn{color:#c084fc}.str{color:#86efac}</style><div class="output"><span class="cm"># pip install requests</span><br><span class="kw">import</span> requests<br><br><span class="kw">def</span> <span class="fn">get_weather</span>(city):<br>&nbsp;&nbsp;key = <span class="str">"YOUR_API_KEY"</span><br>&nbsp;&nbsp;url = <span class="str">f"api.openweathermap.org/...&q={city}"</span><br>&nbsp;&nbsp;data = requests.get(url).json()<br>&nbsp;&nbsp;<span class="kw">return</span> data[<span class="str">'main'</span>][<span class="str">'temp'</span>]</div>`,
+    code: `# pip install requests\nimport requests\n\ndef get_weather(city, api_key):\n    """Get current temperature for a city."""\n    url = (\n        f"https://api.openweathermap.org/data/2.5/weather"\n        f"?q={city}&appid={api_key}&units=metric"\n    )\n    response = requests.get(url)\n    data = response.json()\n    temp = data['main']['temp']\n    desc = data['weather'][0]['description']\n    return f"{city}: {temp}°C, {desc}"\n\nprint(get_weather("Karachi", "your_api_key_here"))`
   }
 ];
+
 
 /* ── State ── */
 let currentLang  = 'all';
